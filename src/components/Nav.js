@@ -6,19 +6,34 @@ import LoginModal from "./LoginModal";
 const Nav = () => {
   const navigate = useNavigate();
   const [loginModal, setLoginModal] = useState(false);
+  const [userName, setUserName] = useState("");
 
   const onClickLogin = () => {
     setLoginModal(!loginModal);
+  };
+
+  const onClickLogout = () => {
+    localStorage.removeItem("USER_NAME");
+    localStorage.removeItem("USER_PHONENUMBER");
+    localStorage.removeItem("user_date");
+    localStorage.removeItem("user_data");
+    navigate("/");
   };
   return (
     <HeaderWrapper>
       <Link to="./">
         <img alt="logo" src="/assets/logo.png" />
       </Link>
-      <div className="headerMenu">
+      {localStorage.getItem("USER_NAME") ? (
+        <div onClick={onClickLogout} className="marginLeft_10">
+          로그아웃
+        </div>
+      ) : (
         <div onClick={onClickLogin} className="marginLeft_10">
           로그인
         </div>
+      )}
+      <div className="headerMenu">
         {loginModal && (
           <LoginModal loginModal={loginModal} setLoginModal={setLoginModal} />
         )}
@@ -30,7 +45,9 @@ const Nav = () => {
         >
           예약하기
         </div>
-        <div className="marginLeft_10">예약조회</div>
+        <Link to="./confirm">
+          <div className="marginLeft_10">예약조회</div>
+        </Link>
       </div>
     </HeaderWrapper>
   );

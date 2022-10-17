@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import GlobalStyle from "./GlobalStyle";
 import Main from "./pages/Main";
 import Reservation from "./pages/Reservation";
+import Confirm from "./pages/Confirm";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/reservation" element={<Reservation />} />
+        <Route path="/confirm" element={<Confirm />} />
       </Routes>
     </BrowserRouter>
   );
