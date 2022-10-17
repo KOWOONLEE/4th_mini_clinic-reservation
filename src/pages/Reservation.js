@@ -14,6 +14,7 @@ const Reservation = () => {
   };
 
   console.log(selected);
+  console.log(value);
   return (
     <RevervationWrapper>
       <MainBackground>
