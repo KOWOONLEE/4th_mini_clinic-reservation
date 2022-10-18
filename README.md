@@ -1,70 +1,122 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **프로젝트 소개 - 오디오 재생 프로그램 만들기**
 
-## Available Scripts
+## 배포 주소
+### 📒 
 
-In the project directory, you can run:
+<br>
+<br>
 
-### `npm start`
+## 프로젝트 설명
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 로그인하여 병원을 예약하는 페이지 입니다.
+- 병원 선택, 날짜, 시간, 진료 종류를 선택할 수 있습니다.
+- 해당 데이터들은 localstorage로 저장하고 화면에 보이게 됩니다.
+- 로그인 + 예약완료 상태에서는 예약 조회에 예약 데이터가 나옵니다.
+- 예약 완료 상태에서 예약 취소 가능합니다.
+- 로그아웃 시에는 localstorage 저장된 내용이 삭제되어 다시 로그인부터 예약 진행해야합니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
+<br>
 
-### `npm test`
+## **언어**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> JavaScript
+> React.js
 
-### `npm run build`
+## **라이브러리**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> styled-components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> styled-reset
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> react-dom
 
-### `npm run eject`
+> react-router-dom
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> react-datetime-picker
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br>
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 프로젝트 설치 및 실행 방법
 
-## Learn More
+1. Node.js를 설치해주세요.
+```
+https://nodejs.org/
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. 레포지토리를 클론 후 폴더로 이동 해주세요.
+```
+https://github.com/KOWOONLEE/4th_mini_clinic-reservation.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. dependencies를 설치해주세요.
+```
+npm install
+```
 
-### Code Splitting
+4. 명령어를 통해 server를 실행해주세요. (build vite 사용)
+```
+npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br>
+<br>
 
-### Analyzing the Bundle Size
+## 기능 소개
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### ✅ 로그인 화면
+이름과 핸드폰번호를 입력하여 localstorage에 저장합니다.
 
-### Making a Progressive Web App
+<img src="https://user-images.githubusercontent.com/94745558/195707539-659b145e-79b8-47a4-9197-3ee01e3aa91a.gif" width="50%" height="100%"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br>
+<br>
 
-### Advanced Configuration
+### ✅ 예약 화면
+병원, 시간, 진료 종류를 선택하여 예약합니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<img src="https://user-images.githubusercontent.com/94745558/195709912-87ad8934-3605-4435-9367-ed5b82da4efe.gif" width="50%" height="100%"/>
 
-### Deployment
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### ✅ 예약 조회 화면
+예약 완료했던 데이터를 뿌려줍니다.
+예약 취소 가능하고 예약 데이터가 없다면 예약 내역이 없다고 뜹니다.
 
-### `npm run build` fails to minify
+<img src="https://user-images.githubusercontent.com/94745558/195708154-624c2f46-e8da-4709-bf31-3486ec8c02ae.gif" width="50%" height="100%"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br>
+<br>
+
+### ✅ 예약 취소
+예약 취소시에는 localstorage에 저장된 예약 데이터가 삭제됩니다.
+
+<img src="https://user-images.githubusercontent.com/94745558/195709196-bd7aaa4d-bf44-4fa4-acef-66d217f7c35e.gif" width="50%" height="100%"/>
+
+<br>
+<br>
+
+### ✅ 로그아웃 화면
+로그아웃 시에는 localstoragedp 저장된 사용자 및 예약데이터가 삭제됩니다.
+
+<img src="https://user-images.githubusercontent.com/94745558/195710062-83a95770-f15f-4bb5-ab61-8ab81fdb4f7b.gif" width="50%" height="100%"/>
+
+<br>
+<br>
+
+
+
+## 코드 설명
+
+
+
+## 작성자 깃허브 및 블로그 계정
+
+- 깃허브 https://github.com/KOWOONLEE
+- 블로그 https://velog.io/@kkk5689
+
+
