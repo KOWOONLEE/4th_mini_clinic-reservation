@@ -24,16 +24,17 @@ const Nav = () => {
       <Link to="./">
         <img alt="logo" src="/assets/logo.png" />
       </Link>
-      {localStorage.getItem("USER_NAME") ? (
-        <div onClick={onClickLogout} className="marginLeft_10">
-          로그아웃
-        </div>
-      ) : (
-        <div onClick={onClickLogin} className="marginLeft_10">
-          로그인
-        </div>
-      )}
       <div className="headerMenu">
+        {localStorage.getItem("USER_NAME") ? (
+          <div onClick={onClickLogout} className="marginLeft_10">
+            로그아웃
+          </div>
+        ) : (
+          <div onClick={onClickLogin} className="marginLeft_10">
+            로그인
+          </div>
+        )}
+
         {loginModal && (
           <LoginModal loginModal={loginModal} setLoginModal={setLoginModal} />
         )}
@@ -75,6 +76,7 @@ const HeaderWrapper = styled.div`
   .headerMenu {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     .marginLeft_10 {
       margin-left: 10px;

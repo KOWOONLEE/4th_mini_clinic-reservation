@@ -8,22 +8,36 @@ const Reservation = () => {
   const navigate = useNavigate();
   const [value, onChange] = useState(new Date());
   const [selected, setSelected] = useState("");
+  const [hospital, setHospital] = useState([]);
+  const [hospitalSelected, setHospitalSelected] = useState("");
   const selectList = ["=== 선택 ===", "진료", "검진", "상담"];
 
   const currentUserName = localStorage.getItem("USER_NAME");
-  console.log(currentUserName);
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
+  };
+
+  const handleHospital = (e) => {
+    setHospitalSelected(e.target.value);
   };
 
   const submitReservation = (e) => {
     e.preventDefault();
     alert("예약이 완료되었습니다");
     navigate("/confirm");
+    localStorage.setItem("hospital", hospitalSelected);
     localStorage.setItem("user_date", value);
     localStorage.setItem("user_data", selected);
   };
+  console.log(hospitalSelected);
+  console.log(selected);
+
+  useEffect(() => {
+    fetch("/data/hospital.json")
+      .then((res) => res.json())
+      .then((data) => setHospital(data.category));
+  }, []);
 
   return (
     <RevervationWrapper>
@@ -43,6 +57,18 @@ const Reservation = () => {
         <MainBackground>
           <h1>{currentUserName}님의 예약페이지</h1>
           <h1>Reservation</h1>
+          <h3>병원 선택하기</h3>
+          <select
+            onChange={handleHospital}
+            value={hospitalSelected}
+            className="hospitalBox"
+          >
+            {hospital.map((item) => (
+              <option value={item.hospitalName} key={item.id}>
+                {item.hospitalName}
+              </option>
+            ))}
+          </select>
           <h3>날짜 및 시간 선택</h3>
           <DateTimePicker
             onChange={onChange}
@@ -50,7 +76,7 @@ const Reservation = () => {
             calendarAriaLabel="Toggle calendar"
             minDate={new Date()}
             timeIntervals={30}
-            disableClock="true"
+            disableClock={true}
           />
           <h3>진료 종류 선택</h3>
           <select
@@ -81,7 +107,7 @@ const RevervationWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  padding-top: 15vh;
+  padding-top: 10vh;
 
   .alredyRes {
     display: inline-block;
@@ -94,7 +120,7 @@ const RevervationWrapper = styled.div`
     border: 1px solid gray;
 
     p {
-      margin-top: 20px;
+      margin-top: 15px;
     }
     button {
       width: 30vw;
@@ -108,9 +134,9 @@ const RevervationWrapper = styled.div`
   }
 
   h1 {
-    font-size: 2.5em;
+    font-size: 2.3em;
     text-align: center;
-    margin: 40px 0 40px 0;
+    margin: 20px 0 20px 0;
   }
   h3 {
     font-size: 1.5em;
@@ -145,6 +171,15 @@ const MainBackground = styled.div`
   background-color: white;
   position: relative;
   margin-top: 5vh;
+
+  .hospitalBox {
+    display: flex;
+    width: 40%;
+    height: 5vh;
+    font-size: 1em;
+    margin: 0 auto;
+    text-align: center;
+  }
 
   .react-datetime-picker {
     display: flex;

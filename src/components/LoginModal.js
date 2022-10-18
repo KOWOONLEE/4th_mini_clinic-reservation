@@ -103,7 +103,7 @@ const ModalWrapper = styled.div`
   .loginModal {
     position: absolute;
     width: 30%;
-    height: 50%;
+    height: 65vh;
     background-color: #fff;
     // Modal 창 브라우저 가운데로 조정
     left: 50%;

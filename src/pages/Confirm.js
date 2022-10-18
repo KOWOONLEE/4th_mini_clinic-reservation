@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import moment from "moment";
 
 const Confirm = () => {
@@ -8,7 +7,9 @@ const Confirm = () => {
   const currentUserName = localStorage.getItem("USER_NAME");
   const currentUserDate = localStorage.getItem("user_date");
   const currentUserData = localStorage.getItem("user_data");
-  const currentUserNum = localStorage.getItem("USER_PHONENUMBER");
+  const currentHospital = localStorage.getItem("hospital");
+  // const currentUserNum = localStorage.getItem("USER_PHONENUMBER");
+  console.log(currentHospital);
 
   const reservationDate =
     moment(currentUserDate).format("YYYY년 MM월 DD일 HH시");
@@ -16,28 +17,39 @@ const Confirm = () => {
   const clickDelete = () => {
     localStorage.removeItem("user_date");
     localStorage.removeItem("user_data");
+    localStorage.removeItem("hospital");
     navigate("/");
   };
   const clickanother = () => {
     localStorage.removeItem("user_date");
     localStorage.removeItem("user_data");
+    localStorage.removeItem("hospital");
     navigate("/reservation");
   };
   return (
     <ConfirmWrapper>
-      <div className="contentBox">
-        <h1>예약 확인 페이지</h1>
-        <h3>안녕하세요. {currentUserName}님</h3>
-        <h3>아래와 같이 예약 내역 확인 바랍니다.</h3>
-        <div className="userConfirm">
-          <h3>예약 일시 : {reservationDate}</h3>
-          <h3>예약 종류 : {currentUserData}</h3>
+      {currentUserData ? (
+        <div className="contentBox">
+          <h1>예약 확인 페이지</h1>
+          <h3>안녕하세요. {currentUserName}님</h3>
+          <h3>아래와 같이 예약 내역 확인 바랍니다.</h3>
+          <div className="userConfirm">
+            <h3>예약 병원 : {currentHospital}</h3>
+            <h3>예약 일시 : {reservationDate}</h3>
+            <h3>예약 종류 : {currentUserData}</h3>
+          </div>
+          <div className="selectOption">
+            <button className="leftBtn" onClick={clickanother}>
+              예약 변경하기
+            </button>
+            <button className="rightBtn" onClick={clickDelete}>
+              예약 취소하기
+            </button>
+          </div>
         </div>
-        <div>
-          <button onClick={clickanother}>예약 변경하기</button>
-          <button onClick={clickDelete}>예약 취소하기</button>
-        </div>
-      </div>
+      ) : (
+        <div className="nothingRes">예약 내역이 없습니다.</div>
+      )}
     </ConfirmWrapper>
   );
 };
@@ -53,6 +65,10 @@ const ConfirmWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
+  .nothingRes {
+    font-size: 2em;
+  }
+
   .contentBox {
     display: inline-block;
     vertical-align: center;
@@ -60,7 +76,7 @@ const ConfirmWrapper = styled.div`
 
     h1 {
       font-size: 2.5em;
-      margin: 30px 0px 30px 0px;
+      margin: 20px 0px 20px 0px;
     }
     h3 {
       font-size: 1.5em;
@@ -69,11 +85,22 @@ const ConfirmWrapper = styled.div`
     .userConfirm {
       display: inline-block;
       width: 60%;
-      height: 20vh;
+      height: 30vh;
       margin-top: 20px;
       border: 2px solid #da005c;
       border-radius: 20px;
       padding-top: 20px;
+    }
+    .selectOption {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .leftBtn {
+      margin-left: 400px;
+    }
+    .rightBtn {
+      margin-right: 400px;
     }
     button {
       display: flex;
