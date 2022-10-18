@@ -17,7 +17,7 @@ const Confirm = () => {
     localStorage.removeItem("user_data");
     localStorage.removeItem("hospital");
   };
-
+  console.log(currentHospital);
   const clickDelete = () => {
     removeData();
     navigate("/");
