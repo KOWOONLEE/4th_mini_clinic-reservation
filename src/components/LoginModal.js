@@ -116,7 +116,7 @@ const ModalWrapper = styled.div`
 
     h1 {
       font-size: 1.5em;
-      margin-top: 15px;
+      margin-top: 20px;
       margin-bottom: 15px;
       font-weight: bold;
     }

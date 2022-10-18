@@ -30,9 +30,6 @@ const Reservation = () => {
     localStorage.setItem("user_date", value);
     localStorage.setItem("user_data", selected);
   };
-  console.log(hospitalSelected);
-  console.log(selected);
-
   useEffect(() => {
     fetch("/data/hospital.json")
       .then((res) => res.json())
@@ -57,7 +54,7 @@ const Reservation = () => {
         <MainBackground>
           <h1>{currentUserName}님의 예약페이지</h1>
           <h1>Reservation</h1>
-          <h3>병원 선택하기</h3>
+          <h3 className="h3Title">병원 선택하기</h3>
           <select
             onChange={handleHospital}
             value={hospitalSelected}
@@ -69,7 +66,7 @@ const Reservation = () => {
               </option>
             ))}
           </select>
-          <h3>날짜 및 시간 선택</h3>
+          <h3 className="h3Title">날짜 및 시간 선택</h3>
           <DateTimePicker
             onChange={onChange}
             value={value}
@@ -78,7 +75,7 @@ const Reservation = () => {
             timeIntervals={30}
             disableClock={true}
           />
-          <h3>진료 종류 선택</h3>
+          <h3 className="h3Title">진료 종류 선택</h3>
           <select
             onChange={handleSelect}
             value={selected}
@@ -117,7 +114,8 @@ const RevervationWrapper = styled.div`
     padding-top: 20px;
     font-size: 2em;
     text-align: center;
-    border: 1px solid gray;
+    border: 2px solid #da005c;
+    border-radius: 10px;
 
     p {
       margin-top: 15px;
@@ -136,20 +134,21 @@ const RevervationWrapper = styled.div`
   h1 {
     font-size: 2.3em;
     text-align: center;
-    margin: 20px 0 20px 0;
+    margin: 30px 0 20px 0;
   }
-  h3 {
+  .h3Title {
     font-size: 1.5em;
     text-align: center;
-    margin: 40px 0 20px 0;
+    margin: 30px 0 20px 0;
   }
   .selectBox {
     display: flex;
-    width: 40%;
+    width: 30%;
     height: 5vh;
     font-size: 1em;
     margin: 0 auto;
     text-align: center;
+    border: 1px solid #da005c;
   }
 
   .reservationBtn {
@@ -174,16 +173,17 @@ const MainBackground = styled.div`
 
   .hospitalBox {
     display: flex;
-    width: 40%;
+    width: 30%;
     height: 5vh;
     font-size: 1em;
     margin: 0 auto;
     text-align: center;
+    border: 1px solid #da005c;
   }
 
   .react-datetime-picker {
     display: flex;
-    width: 40%;
+    width: 30%;
     margin: 0 auto;
     text-align: center;
   }
@@ -191,6 +191,9 @@ const MainBackground = styled.div`
     display: inline-block;
     justify-content: center;
     align-items: center;
+  }
+  .react-datetime-picker__wrapper {
+    border: 1px solid #da005c;
   }
   .react-date-picker__calendar--open {
     position: absolute;

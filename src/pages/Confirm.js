@@ -9,7 +9,6 @@ const Confirm = () => {
   const currentUserData = localStorage.getItem("user_data");
   const currentHospital = localStorage.getItem("hospital");
   // const currentUserNum = localStorage.getItem("USER_PHONENUMBER");
-  console.log(currentHospital);
 
   const reservationDate =
     moment(currentUserDate).format("YYYY년 MM월 DD일 HH시");

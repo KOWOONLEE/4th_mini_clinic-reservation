@@ -6,7 +6,7 @@ const Main = () => {
     <MainWrapper>
       <MainBackground src="/assets/main.png" />
       <div className="backgroundMiddle">
-        <p>예약 관리 홈페이지</p>
+        <p>병원 예약 홈페이지</p>
       </div>
       {/* </MainBackground> */}
     </MainWrapper>
