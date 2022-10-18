@@ -70,7 +70,7 @@ npm run start
 ### ✅ 로그인 화면
 이름과 핸드폰번호를 입력하여 localstorage에 저장합니다.
 
-<img src="https://user-images.githubusercontent.com/94745558/195707539-659b145e-79b8-47a4-9197-3ee01e3aa91a.gif" width="50%" height="100%"/>
+![로그인](https://user-images.githubusercontent.com/108816777/196376587-a8fa5a90-514d-4e96-ad05-38b66867d4f8.gif)
 
 <br>
 <br>
@@ -78,32 +78,34 @@ npm run start
 ### ✅ 예약 화면
 병원, 시간, 진료 종류를 선택하여 예약합니다.
 
-<img src="https://user-images.githubusercontent.com/94745558/195709912-87ad8934-3605-4435-9367-ed5b82da4efe.gif" width="50%" height="100%"/>
+![예약 페이지](https://user-images.githubusercontent.com/108816777/196376814-3381bd43-5b69-4d2c-ac1d-107483c6c13a.gif)
+
 
 <br>
 <br>
 
-### ✅ 예약 조회 화면
-예약 완료했던 데이터를 뿌려줍니다.
-예약 취소 가능하고 예약 데이터가 없다면 예약 내역이 없다고 뜹니다.
+### ✅ 예약 조회, 예약 변경
+예약 데이터가 출력됩니다.
+예약 변경 버튼 클릭시 기존 예약 데이터는 지워지고 예약화면으로 넘어갑니다.
 
-<img src="https://user-images.githubusercontent.com/94745558/195708154-624c2f46-e8da-4709-bf31-3486ec8c02ae.gif" width="50%" height="100%"/>
+![예약 변경](https://user-images.githubusercontent.com/108816777/196376963-ee67206b-743b-4a43-827e-1bfe329ae17d.gif)
 
 <br>
 <br>
 
 ### ✅ 예약 취소
-예약 취소시에는 localstorage에 저장된 예약 데이터가 삭제됩니다.
+예약 취소 가능하고 localstorage에 저장된 예약 데이터가 삭제됩니다. 예약 조회시 예약 데이터가 없다면 예약 내역이 없다고 뜹니다.
 
-<img src="https://user-images.githubusercontent.com/94745558/195709196-bd7aaa4d-bf44-4fa4-acef-66d217f7c35e.gif" width="50%" height="100%"/>
+![예약 취소](https://user-images.githubusercontent.com/108816777/196377404-a010ad3f-5669-4e11-8225-3fd4ec8f4de3.gif)
 
 <br>
 <br>
+
 
 ### ✅ 로그아웃 화면
 로그아웃 시에는 localstoragedp 저장된 사용자 및 예약데이터가 삭제됩니다.
 
-<img src="https://user-images.githubusercontent.com/94745558/195710062-83a95770-f15f-4bb5-ab61-8ab81fdb4f7b.gif" width="50%" height="100%"/>
+![로그아웃](https://user-images.githubusercontent.com/108816777/196377655-4f07f190-70b2-41be-84e9-e3cdc19d4913.gif)
 
 <br>
 <br>
