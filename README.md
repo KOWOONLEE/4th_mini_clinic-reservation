@@ -57,7 +57,7 @@ https://github.com/KOWOONLEE/4th_mini_clinic-reservation.git
 npm install
 ```
 
-4. 명령어를 통해 server를 실행해주세요. (build vite 사용)
+4. 명령어를 통해 server를 실행해주세요.
 ```
 npm run start
 ```
