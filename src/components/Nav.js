@@ -6,9 +6,18 @@ import LoginModal from "./LoginModal";
 const Nav = () => {
   const navigate = useNavigate();
   const [loginModal, setLoginModal] = useState(false);
+  const [userName, setUserName] = useState("");
 
   const onClickLogin = () => {
     setLoginModal(!loginModal);
+  };
+
+  const onClickLogout = () => {
+    localStorage.removeItem("USER_NAME");
+    localStorage.removeItem("USER_PHONENUMBER");
+    localStorage.removeItem("user_date");
+    localStorage.removeItem("user_data");
+    navigate("/");
   };
   return (
     <HeaderWrapper>
@@ -16,9 +25,16 @@ const Nav = () => {
         <img alt="logo" src="/assets/logo.png" />
       </Link>
       <div className="headerMenu">
-        <div onClick={onClickLogin} className="marginLeft_10">
-          로그인
-        </div>
+        {localStorage.getItem("USER_NAME") ? (
+          <div onClick={onClickLogout} className="marginLeft_10">
+            로그아웃
+          </div>
+        ) : (
+          <div onClick={onClickLogin} className="marginLeft_10">
+            로그인
+          </div>
+        )}
+
         {loginModal && (
           <LoginModal loginModal={loginModal} setLoginModal={setLoginModal} />
         )}
@@ -30,7 +46,9 @@ const Nav = () => {
         >
           예약하기
         </div>
-        <div className="marginLeft_10">예약조회</div>
+        <Link to="./confirm">
+          <div className="marginLeft_10">예약조회</div>
+        </Link>
       </div>
     </HeaderWrapper>
   );
@@ -58,6 +76,7 @@ const HeaderWrapper = styled.div`
   .headerMenu {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     .marginLeft_10 {
       margin-left: 10px;

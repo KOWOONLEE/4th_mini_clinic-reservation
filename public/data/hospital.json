@@ -1,0 +1,19 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "hospitalName": "이안과",
+      "subject": "안과"
+    },
+    {
+      "id": 2,
+      "hospitalName": "튼튼외과",
+      "subject": "외과"
+    },
+    {
+      "id": 3,
+      "hospitalName": "한마음내과",
+      "subject": "내과"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginModal = ({ loginModal, setLoginModal }) => {
   const navigate = useNavigate();
@@ -8,6 +8,13 @@ const LoginModal = ({ loginModal, setLoginModal }) => {
   const [userName, setUserName] = useState("");
   const [userNumber, setUserNumber] = useState("");
   const [valid, setValid] = useState(false);
+  const outside = useRef();
+
+  const closeModal = (e) => {
+    if (loginModal && outside.current === e.target) {
+      setLoginModal(false);
+    }
+  };
 
   const handleName = (e) => {
     const nameValue = e.target.value;
@@ -26,38 +33,29 @@ const LoginModal = ({ loginModal, setLoginModal }) => {
   };
 
   const handleLogin = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     if (userName.length >= 1 && userNumber.length >= 10) {
       setValid(true);
       navigate("/reservation");
       setLoginModal(!loginModal);
-      localStorage.getItem("user_number");
     } else {
       setValid(false);
     }
   };
-  const onClickLogin = () => {
-    const body = {
-      userName,
-      userNumber,
-    };
-    fetch("./data/user.json", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        localStorage.setItem("user_number", userNumber);
-        handleLogin();
-      });
-    console.log();
-  };
+
+  function onClickLogin() {
+    localStorage.setItem("USER_NAME", userName);
+    localStorage.setItem("USER_PHONENUMBER", userNumber);
+    handleLogin();
+  }
 
   return (
-    <ModalWrapper>
+    <ModalWrapper
+      ref={outside}
+      onClick={(e) => {
+        closeModal(e);
+      }}
+    >
       <div className="loginModal">
         <h1>LOGIN</h1>
         <form>
@@ -73,7 +71,7 @@ const LoginModal = ({ loginModal, setLoginModal }) => {
             <p>핸드폰 번호</p>
             <input
               onChange={hadleNumber}
-              type="tel"
+              type="number"
               placeholder="10자이상 입력해주세요"
             ></input>
           </div>
@@ -105,7 +103,7 @@ const ModalWrapper = styled.div`
   .loginModal {
     position: absolute;
     width: 30%;
-    height: 50%;
+    height: 65vh;
     background-color: #fff;
     // Modal 창 브라우저 가운데로 조정
     left: 50%;
@@ -118,13 +116,14 @@ const ModalWrapper = styled.div`
 
     h1 {
       font-size: 1.5em;
+      margin-top: 20px;
       margin-bottom: 15px;
       font-weight: bold;
     }
 
     p {
       font-size: 0.6em;
-      margin: 8px 0px 8px 0;
+      margin: 20px 0px 8px 0;
       text-align: left;
       font-weight: bold;
     }
@@ -143,7 +142,7 @@ const ModalWrapper = styled.div`
       text-align: center;
       align-items: center;
       justify-content: center;
-      margin: 20px auto;
+      margin: 30px auto;
 
       &:enabled {
         background-color: #da005c;
