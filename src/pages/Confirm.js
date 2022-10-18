@@ -96,10 +96,10 @@ const ConfirmWrapper = styled.div`
       align-items: center;
     }
     .leftBtn {
-      margin-left: 400px;
+      margin-left: 300px;
     }
     .rightBtn {
-      margin-right: 400px;
+      margin-right: 300px;
     }
     button {
       display: flex;
