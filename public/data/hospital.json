@@ -1,6 +1,11 @@
 {
   "category": [
     {
+      "id": 0,
+      "hospitalName": "== 병원 ==",
+      "subject": "기타"
+    },
+    {
       "id": 1,
       "hospitalName": "이안과",
       "subject": "안과"

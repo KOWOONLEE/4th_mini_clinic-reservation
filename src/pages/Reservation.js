@@ -13,6 +13,7 @@ const Reservation = () => {
   const selectList = ["=== 선택 ===", "진료", "검진", "상담"];
 
   const currentUserName = localStorage.getItem("USER_NAME");
+  console.log(currentUserName);
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
@@ -21,9 +22,10 @@ const Reservation = () => {
   const handleHospital = (e) => {
     setHospitalSelected(e.target.value);
   };
+  console.log(hospitalSelected);
 
   const submitReservation = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     alert("예약이 완료되었습니다");
     navigate("/confirm");
     localStorage.setItem("hospital", hospitalSelected);
