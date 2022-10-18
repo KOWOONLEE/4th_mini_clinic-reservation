@@ -18,7 +18,6 @@ const Reservation = () => {
     setSelected(e.target.value);
   };
 
-<<<<<<< HEAD
   const handleHospital = (e) => {
     setHospitalSelected(e.target.value);
   };
@@ -37,10 +36,6 @@ const Reservation = () => {
       .then((data) => setHospital(data.category));
   }, []);
 
-=======
-  console.log(selected);
-  console.log(value);
->>>>>>> main
   return (
     <RevervationWrapper>
       {localStorage.getItem("user_date") ? (
