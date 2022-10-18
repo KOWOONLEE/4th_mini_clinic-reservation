@@ -8,21 +8,22 @@ const Confirm = () => {
   const currentUserDate = localStorage.getItem("user_date");
   const currentUserData = localStorage.getItem("user_data");
   const currentHospital = localStorage.getItem("hospital");
-  // const currentUserNum = localStorage.getItem("USER_PHONENUMBER");
 
   const reservationDate =
     moment(currentUserDate).format("YYYY년 MM월 DD일 HH시");
 
-  const clickDelete = () => {
+  const removeData = () => {
     localStorage.removeItem("user_date");
     localStorage.removeItem("user_data");
     localStorage.removeItem("hospital");
+  };
+
+  const clickDelete = () => {
+    removeData();
     navigate("/");
   };
   const clickanother = () => {
-    localStorage.removeItem("user_date");
-    localStorage.removeItem("user_data");
-    localStorage.removeItem("hospital");
+    removeData();
     navigate("/reservation");
   };
   return (
